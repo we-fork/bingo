@@ -63,6 +63,27 @@ Bingo，一个让你呼吸顺畅 New Bing。
 感谢 [@SokWith](https://github.com/SokWith) 测试，Render 目前已复活。
 为了防止封号，一键部署不再提供，请前往 https://render.com 手动部署。
 
+#### 部署到 Fly.io
+
+- [安装 flyctl 命令行工具](https://fly.io/docs/hands-on/install-flyctl/)
+
+- 通过 flyctl 完成注册、登录：
+
+  ```sh
+  fly auth signup
+  fly auth login
+  ```
+
+- 通过 flyctl 发布应用：
+
+  ```sh
+  cd bingo
+  cp fly.io/fly.example.toml ./fly.toml
+  # 修改 ./fly.toml 中的 app 为你的自定义名称
+  fly launch
+  # 如名称未被占用则发布成功，浏览器访问 https://<自定义名称>.fly.dev/
+  ```
+
 ### 代理模式（不推荐）
 当前面的方式都不能用的时候，可以使用代理模式，然后将域名解析到自己的服务器上，做为折中的办法继续使用。
 #### 1. 部署到 Replit（推荐）
